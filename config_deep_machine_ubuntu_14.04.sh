@@ -19,7 +19,7 @@ sudo usermod -aG docker $USER && \
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/364.19/NVIDIA-Linux-x86_64-364.19.run && \
 sudo apt-get install -y gcc make && \
 chmod +x NVIDIA-* && \
-sudo ./NVIDIA-Linux-x86_64-364.19.run && \
+sudo ./NVIDIA-Linux-x86_64-364.19.run
 
 # Install nvidia-docker
 wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-rc.3/nvidia-docker_1.0.0.rc.3-1_amd64.deb && \
@@ -30,5 +30,5 @@ wget https://raw.githubusercontent.com/gmpetrov/y-dl-docker/master/Dockerfile.gp
 sudo docker build -t ysance/y-dl-docker:gpu -f Dockerfile.gpu . && \
 
 # Run image
-# nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
+nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
 

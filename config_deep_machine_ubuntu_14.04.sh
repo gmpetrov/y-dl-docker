@@ -1,4 +1,4 @@
-#!/bin/shnvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
+#!/bin/sh
 
 # Install Docker
 sudo apt-get update && \

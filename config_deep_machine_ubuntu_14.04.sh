@@ -1,8 +1,6 @@
 #!/bin/shnvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
 
 # Install Docker
-sudo su && \
-cd && \
 sudo apt-get update && \
 sudo apt-get install -y apt-transport-https ca-certificates && \
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D && \

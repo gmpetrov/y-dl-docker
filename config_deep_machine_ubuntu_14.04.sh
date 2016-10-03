@@ -12,12 +12,21 @@ sudo apt-get update && \
 sudo apt-get install -y docker-engine && \
 sudo usermod -aG docker $USER && \
 
-# Install Nvidia Drivers
+# Blacklist nouveau drivers (conflict with Nvidia drivers)
+echo "blacklist nouveau" > /etc/modprobe.d/blacklist-nouveau.conf
+echo "blacklist lbm-nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
+echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+echo "alias nouveau off" >> /etc/modprobe.d/blacklist-nouveau.conf
+echo "alias lbm-nouveau off" >> /etc/modprobe.d/blacklist-nouveau.conf
+echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+sudo update-initramfs -u
+
+
 
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/364.19/NVIDIA-Linux-x86_64-364.19.run && \
 sudo apt-get install -y gcc make && \
 chmod +x NVIDIA-* && \
-sudo ./NVIDIA-Linux-x86_64-364.19.run < /dev/tty && \
+sudo ./NVIDIA-Linux-x86_64-364.19.run --dkms --silent && \
 
 # Install nvidia-docker
 wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-rc.3/nvidia-docker_1.0.0.rc.3-1_amd64.deb && \

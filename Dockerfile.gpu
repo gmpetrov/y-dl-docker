@@ -53,7 +53,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 	rm get-pip.py
 
 # Add SNI support to Python
-RUN pip --no-cache-dir install \
+RUN pip install \
 		pyopenssl \
 		ndg-httpsclient \
 		pyasn1

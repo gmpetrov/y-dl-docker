@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/shnvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
 
 # Install Docker
 sudo su && \
@@ -30,5 +30,5 @@ wget https://raw.githubusercontent.com/gmpetrov/y-dl-docker/master/Dockerfile.gp
 sudo docker build -t ysance/y-dl-docker:gpu -f Dockerfile.gpu . && \
 
 # Run image
-nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
+# nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
 

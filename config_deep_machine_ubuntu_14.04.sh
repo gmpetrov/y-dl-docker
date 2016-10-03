@@ -19,7 +19,7 @@ echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
 echo "alias nouveau off" >> /etc/modprobe.d/blacklist-nouveau.conf
 echo "alias lbm-nouveau off" >> /etc/modprobe.d/blacklist-nouveau.conf
 echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
-sudo update-initramfs -u
+sudo update-initramfs -u && \
 
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/364.19/NVIDIA-Linux-x86_64-364.19.run && \
 sudo apt-get install -y gcc make && \

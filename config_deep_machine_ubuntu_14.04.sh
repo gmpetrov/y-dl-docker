@@ -33,8 +33,8 @@ sudo dpkg -i /tmp/nvidia-docker*.deb && rm /tmp/nvidia-docker*.deb && \
 
 # Download custom Dockerfile and build image
 wget https://raw.githubusercontent.com/gmpetrov/y-dl-docker/master/Dockerfile.gpu && \
-sudo docker build -t ysance/y-dl-docker:gpu -f Dockerfile.gpu . && \
+sudo docker build -t ysance/y-dl-docker:gpu -f Dockerfile.gpu .
 
 
 # Run image
-nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash
+# nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder ysance/y-dl-docker:gpu bash

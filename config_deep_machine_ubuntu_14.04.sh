@@ -10,6 +10,8 @@ apt-cache policy docker-engine && \
 sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual && \
 sudo apt-get update && \
 sudo apt-get install -y docker-engine && \
+sudo apt-get install -y gcc make && \
+sudo apt-get install -y dkms linux-headers-generic && \
 sudo usermod -aG docker $USER && \
 
 # Blacklist nouveau driver
@@ -22,9 +24,7 @@ echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf &&
 sudo update-initramfs -u && \
 
 # Download and install Nvidia driver
-sudo apt-get install -y dkms linux-headers-generic && \
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/364.19/NVIDIA-Linux-x86_64-364.19.run && \
-sudo apt-get install -y gcc make && \
 chmod +x NVIDIA-* && \
 sudo sh ./NVIDIA-Linux-x86_64-364.19.run --dkms --silent && \
 
